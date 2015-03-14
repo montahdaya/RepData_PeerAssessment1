@@ -2,7 +2,13 @@
 title: "PA1_Template"
 author: 'Montassar H''Daya : Montassar.hdaya@gmail.com'
 date: "March 14, 2015"
-output: html_document
+output:
+  html_document:
+    fig_caption: yes
+    highlight: monochrome
+    keep_md: yes
+    theme: united
+    toc: yes
 ---
 
 **1.Load the data**
