@@ -1,6 +1,6 @@
 ---
 title: "PA1_Template"
-author: 'Montassar H''Daya : Montassar.hdaya@gmail.com'
+author: "Montassar H'Daya : Montassar.hdaya@gmail.com"
 date: "March 14, 2015"
 output: html_document
 ---
@@ -16,8 +16,7 @@ dat <- read.csv("activity.csv")
 **2.Process/transform the data**
 
 ```{r}
-# Turn the date data into a valid date class to allows for easier processing :
-# Dates are in YYYY-MM-DD format
+# Turn the date data into a valid date class to allows for easier processing : Dates are in YYYY-MM-DD format
 dates <- strptime(dat$date, "%Y-%m-%d")
 dat$date <- dates
 
@@ -45,10 +44,8 @@ totalStepsPerDay
 **2.Create a histogram of the total number of steps taken each day**
 
 ```{r}
-# Plot a (pseudo) histogram where the x-axis denotes the day and the y-axis 
-#denotes the total number of steps taken for each day :
-plot(uniqueDates, totalStepsPerDay, main="Histogram of steps taken each day", 
-     xlab="Date (October to November 2012)", ylab="Frequency", type="h", lwd=4, col="blue")
+# Plot a (pseudo) histogram where the x-axis denotes the day and the y-axis denotes the total number of steps taken for each day :
+plot(uniqueDates, totalStepsPerDay, main="Histogram of steps taken each day", xlab="Date (October to November 2012)", ylab="Frequency", type="h", lwd=4, col="blue")
 
 ```
 
@@ -111,9 +108,7 @@ maxInterval
 isna<- is.na(dat$steps)
 sum(isna)
 ```
-**2.Devise a strategy for filling in all of the missing values in the dataset. 
-#The strategy does not need to be sophisticated. For example, you could use 
-#the mean/median for that day, or the mean for that 5-minute interval, etc.**
+**2.Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.**
 
 ```{r}
 # Modify the meanStepsPerDay vector that contains the mean steps taken
@@ -148,6 +143,8 @@ rawSteps[stepsNA] <- meanColumn[stepsNA]
 ```{r}
 datNew <- dat
 datNew$steps <- rawSteps
+datNew
+
 
 # First split up the data frame for steps by day
 stepsSplitNew <- split(datNew$steps, dates$yday)
@@ -159,10 +156,7 @@ totalStepsPerDayNew <- sapply(stepsSplitNew, sum)
 ```
 
 
-**4.Make a histogram of the total number of steps taken each day and Calculate and 
-#report the mean and median total number of steps taken per day. Do these values
-#differ from the estimates from the first part of the assignment? What is the impact 
-#of imputing missing data on the estimates of the total daily number of steps?**
+**4.Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?**
 ```{r}
 
 # Plot a (pseudo) histogram where the x-axis denotes the day
